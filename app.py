@@ -743,7 +743,7 @@ Month 3: [Fourth priority]
 
             with st.spinner("Generating strategic brief..."):
                 response = client.chat.completions.create(
-                    model="llama3-70b-8192",
+                    model="llama-3.3-70b-versatile",
                     messages=[{"role": "user", "content": context}],
                     temperature=0.4,
                     max_tokens=1500
