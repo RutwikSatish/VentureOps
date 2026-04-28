@@ -520,7 +520,7 @@ with tab3:
 # ══════════════════════════════════════════════════════════════════════════════════
 with tab4:
     st.subheader("⚡ Scale Bottleneck Predictor")
-    st.markdown("Stress-tests the startup at 2x, 5x, and 10x current scale. "
+    st.markdown("Stress-tests the startup at 2x, 5x, and 10x current scale. ")
                 
     col1, col2 = st.columns(2)
 
