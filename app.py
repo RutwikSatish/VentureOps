@@ -286,7 +286,6 @@ with tab2:
 
     with col1:
         st.markdown("#### 🔢 Bottom-Up Method (Primary)")
-        st.markdown("*Industrial logistics market — Jharkhand / West Bengal steel corridor*")
 
         total_potential_customers = st.number_input("Total potential customers in your market",
                                                      100, 100_000_000, 850, step=10)
@@ -301,7 +300,6 @@ with tab2:
 
     with col2:
         st.markdown("#### 📊 Top-Down Method (Cross-Check)")
-        st.markdown("*Indian industrial logistics market (IBEF Logistics Report 2023)*")
 
         industry_market_size = st.number_input("Total industry market size ($B from reports)",
                                                 0.1, 5000.0, 18.5, step=0.5)
