@@ -93,7 +93,6 @@ st.markdown("""
     .confidence-high   { background:#dcfce7; color:#166534; padding:2px 8px; border-radius:4px; font-size:0.75rem; font-weight:600; }
     .confidence-medium { background:#fef9c3; color:#854d0e; padding:2px 8px; border-radius:4px; font-size:0.75rem; font-weight:600; }
     .confidence-low    { background:#fee2e2; color:#991b1b; padding:2px 8px; border-radius:4px; font-size:0.75rem; font-weight:600; }
-    .tour-box { background:#eff6ff; border:2px solid #2563eb; border-radius:12px; padding:1.2rem; margin:1rem 0; }
     .extracted-tag { background:#dbeafe; color:#1d4ed8; padding:2px 6px; border-radius:4px; font-size:0.72rem; font-weight:600; }
     .stTabs [data-baseweb="tab"] { font-weight: 600; font-size: 0.95rem; }
 </style>
@@ -146,14 +145,6 @@ DEMO_DATA = {
     "hiring_time_weeks": 11,
     "monthly_hiring_budget": 22000,
 }
-
-DEMO_TOUR = [
-    ("🎯 Operational Readiness", "NovaMed scores 5.1/10 — Scaling Risk. The two danger zones are key-person dependency (CEO owns all enterprise relationships) and manual ops (42 hrs/week that become 210 hrs at 5x). These are the questions to open with."),
-    ("📐 TAM/SAM/SOM", "Founder claims a $320M SOM — but bottom-up math from their 100 current customers and 2-person sales team gives $11.2M by Year 3. That's a 2,760% gap. Classic sales-capacity error. The methodology is right; the number isn't."),
-    ("🔥 Runway & Burn", "7.6 months runway at current burn. Burn multiple of 2.1x — 'Suspect' on the Bessemer scale. LTV:CAC is 2.4x, below the 3x threshold. NovaMed needs a bridge or a raise within 60 days."),
-    ("⚡ Scale Bottleneck", "At 2x: hiring pressure is the binding constraint. At 5x: manual ops overload becomes critical. With 42 manual hours/week scaling linearly, they hit 210 hrs/week at 5x with a 2-person ops team. Something breaks before that."),
-    ("🤖 AI Brief", "The AI brief synthesizes all four modules into an advisor-ready summary — risks ranked by financial impact, a 90-day intervention plan, and a single metric to watch. Generate it to see the full output."),
-]
 
 # ─── FILE EXTRACTION HELPERS ────────────────────────────────────────────────────
 
@@ -366,11 +357,10 @@ intake_col1, intake_col2, intake_col3 = st.columns([1, 1, 1])
 
 with intake_col1:
     if st.button("🎬 Load Demo (NovaMed AI)", use_container_width=True,
-                 help="Load example data for NovaMed AI — a Seed-stage HealthTech SaaS with a guided tour"):
+                 help="Load example data for NovaMed AI — a Seed-stage HealthTech SaaS"):
         for k, v in DEMO_DATA.items():
             st.session_state[k] = v
         st.session_state["extracted_fields"] = list(DEMO_DATA.keys())
-        st.session_state["demo_mode"] = True
         st.rerun()
 
 with intake_col2:
@@ -453,7 +443,6 @@ with intake_col3:
     if st.button("🔄 Reset to Blank", use_container_width=True):
         for k, v in DEFAULT_STATE.items():
             st.session_state[k] = v
-        st.session_state["demo_mode"] = False
         st.rerun()
 
 # Extracted fields indicator
@@ -466,20 +455,6 @@ if st.session_state.get("extracted_fields"):
     )
 
 st.markdown("---")
-
-# ─── DEMO TOUR ───────────────────────────────────────────────────────────────────
-if st.session_state.get("demo_mode"):
-    st.markdown('<div class="tour-box"><b>🎬 Demo Mode — NovaMed AI</b><br>'
-                'This is a Seed-stage HealthTech B2B SaaS with 11 employees and 7.6 months runway. '
-                'Each tab below shows what VentureOps surfaces — and what questions to ask the founder.</div>',
-                unsafe_allow_html=True)
-
-    with st.expander("📖 Guided Tour — What to look for in each tab", expanded=True):
-        for tab_name, description in DEMO_TOUR:
-            st.markdown(f"**{tab_name}**")
-            st.markdown(description)
-            st.markdown("")
-
 
 # ─── SIDEBAR ────────────────────────────────────────────────────────────────────
 with st.sidebar:
