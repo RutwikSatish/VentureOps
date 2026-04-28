@@ -431,15 +431,15 @@ with tab3:
 
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.markdown("**Conservative** — lose 1 client")
+        st.markdown("**Conservative** ")
         cons_rev_growth  = st.slider("Revenue growth MoM %", -5.0, 30.0, -2.0, 0.5, key="cons_rev")
         cons_burn_growth = st.slider("Burn growth MoM %",     0.0, 20.0,  2.0, 0.5, key="cons_burn")
     with col2:
-        st.markdown("**Base Case** — current trajectory")
+        st.markdown("**Base Case**")
         base_rev_growth  = st.slider("Revenue growth MoM %", -5.0, 30.0, mrr_growth, 0.5, key="base_rev")
         base_burn_growth = st.slider("Burn growth MoM %",     0.0, 20.0, 1.0, 0.5, key="base_burn")
     with col3:
-        st.markdown("**Optimistic** — add 2 new clients")
+        st.markdown("**Optimistic**")
         opt_rev_growth   = st.slider("Revenue growth MoM %", -5.0, 30.0, 8.0, 0.5, key="opt_rev")
         opt_burn_growth  = st.slider("Burn growth MoM %",     0.0, 20.0, 2.5, 0.5, key="opt_burn")
 
@@ -473,7 +473,7 @@ with tab3:
         fig_runway.add_vline(x=fundraise_month, line_dash="dash", line_color="orange",
                               annotation_text="⚡ Start fundraising", annotation_position="top right")
     fig_runway.update_layout(
-        title="36-Month Cash Projection — Ativegh Logistics",
+        title="36-Month Cash Projection",
         xaxis_title="Months from Now", yaxis_title="Cash Balance ($)",
         height=400, margin=dict(t=50, b=20, l=20, r=20)
     )
